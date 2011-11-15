@@ -59,7 +59,7 @@ NEWLIBSRC = downloads/$(notdir $(NEWLIBURL))
 LIBCMSISSRC = downloads/libcmsis-$(LIBCMSIS).tar.bz2
 LIBSTM32SRC = downloads/libstm32-$(LIBSTM32).tar.bz2
 LIBSTM32USBSRC = downloads/libstm32usb-$(LIBSTM32USB).tar.bz2
-LIBOPENSTM32SRC = downloads/libopenstm32-$(LIBSTM32).tar.bz2
+LIBOPENSTM32SRC = downloads/libopenstm32-$(LIBOPENSTM32).tar.bz2
 
 BUILDSYSROOT = $(CURDIR)/build/sysroot
 

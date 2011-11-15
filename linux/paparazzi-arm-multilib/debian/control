@@ -15,3 +15,5 @@ Description: Paparazzi support for lpc21 and stm32 processors
 	gcc
     binutils
 	newlib
+    libstm32
+    libopenstm32
