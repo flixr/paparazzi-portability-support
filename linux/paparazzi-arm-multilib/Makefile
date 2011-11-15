@@ -201,7 +201,8 @@ $(stamp)libcmsis-extract: $(LIBCMSISSRC) $(stamp)init-dirs
 	touch $@
 
 # Build and install
-$(stamp)libcmsis-install: $(stamp)libcmsis-extract
+$(stamp)libcmsis-install: $(stamp)gcc-install $(stamp)libcmsis-extract
+	export PATH=$(BUILDSYSROOT)$(PREFIX)/bin:$(PATH) && \
 	cd src/libcmsis* && \
 	$(MAKE) arch_prefix=$(TARGET) prefix=$(PREFIX) && \
 	$(MAKE) install arch_prefix=$(TARGET) prefix=$(PREFIX) install_dir=$(BUILDSYSROOT)$(PREFIX)/$(TARGET)
@@ -218,7 +219,8 @@ $(stamp)libstm32-extract: $(LIBSTM32SRC) $(stamp)init-dirs
 	touch $@
 
 # Build and install
-$(stamp)libstm32-install: $(stamp)libstm32-extract
+$(stamp)libstm32-install: $(stamp)gcc-install $(stamp)libstm32-extract
+	export PATH=$(BUILDSYSROOT)$(PREFIX)/bin:$(PATH) && \
 	cd src/libstm32* && \
 	$(MAKE) arch_prefix=$(TARGET) prefix=$(PREFIX) && \
 	$(MAKE) install arch_prefix=$(TARGET) prefix=$(PREFIX) install_dir=$(BUILDSYSROOT)$(PREFIX)/$(TARGET)
@@ -235,7 +237,8 @@ $(stamp)libstm32usb-extract: $(LIBSTM32USBSRC) $(stamp)init-dirs
 	touch $@
 
 # Build and install
-$(stamp)libstm32usb-install: $(stamp)libstm32usb-extract
+$(stamp)libstm32usb-install: $(stamp)gcc-install $(stamp)libstm32usb-extract
+	export PATH=$(BUILDSYSROOT)$(PREFIX)/bin:$(PATH) && \
 	cd src/libstm32usb* && \
 	$(MAKE) arch_prefix=$(TARGET) prefix=$(PREFIX) && \
 	$(MAKE) install arch_prefix=$(TARGET) prefix=$(PREFIX) install_dir=$(BUILDSYSROOT)$(PREFIX)/$(TARGET)
@@ -252,7 +255,8 @@ $(stamp)libopenstm32-extract: $(LIBOPENSTM32SRC) $(stamp)init-dirs
 	touch $@
 
 # Build and install
-$(stamp)libopenstm32-install: $(stamp)libopenstm32-extract
+$(stamp)libopenstm32-install: $(stamp)gcc-install $(stamp)libopenstm32-extract
+	export PATH=$(BUILDSYSROOT)$(PREFIX)/bin:$(PATH) && \
 	cd src/libopenstm32* && \
 	$(MAKE) PREFIX=$(TARGET) DESTDIR=$(BUILDSYSROOT)$(PREFIX) && \
 	$(MAKE) install PREFIX=$(TARGET) DESTDIR=$(BUILDSYSROOT)$(PREFIX)
