@@ -30,7 +30,8 @@ GCCFLAGS ?=
 # Sources:
 
 # The binutils version to build
-BINUTILSURL = http://sourceware.mirrors.tds.net/pub/sourceware.org/binutils/snapshots/binutils-2.21.53.tar.bz2
+#BINUTILSURL = http://sourceware.mirrors.tds.net/pub/sourceware.org/binutils/snapshots/binutils-2.21.53.tar.bz2
+BINUTILSURL = http://sourceware.mirrors.tds.net/pub/sourceware.org/binutils/releases/binutils-2.21.1.tar.bz2
 
 # The version of Newlib to use as a C library
 NEWLIBURL = http://sourceware.mirrors.tds.net/pub/sourceware.org/newlib/newlib-1.19.0.tar.gz
