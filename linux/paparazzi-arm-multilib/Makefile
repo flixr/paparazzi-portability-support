@@ -28,7 +28,7 @@ GCCFLAGS ?=
 # Sources:
 
 # The binutils version to build
-BINUTILSURL = http://sourceware.mirrors.tds.net/pub/sourceware.org/binutils/snapshots/binutils-2.21.53.tar.bz2
+BINUTILSURL = http://sourceware.mirrors.tds.net/pub/sourceware.org/binutils/releases/binutils-2.21.1.tar.bz2
 
 # The version of Newlib to use as a C library
 NEWLIBURL = http://sourceware.mirrors.tds.net/pub/sourceware.org/newlib/newlib-1.19.0.tar.gz
@@ -75,10 +75,10 @@ CURLFLAGS = -L
 
 -include local.mk
 
-all: gcc gdb
+all: gcc stmlibs gdb
 
 # Install into the configured directory
-install: gcc stmlibs
+install: gcc stmlibs gdb
 	mkdir -p $(DESTDIR)$(PREFIX)
 	tar cf - -C $(BUILDSYSROOT)$(PREFIX) . | tar xf - -C $(DESTDIR)$(PREFIX)
 
@@ -103,8 +103,14 @@ $(stamp)binutils-extract: $(BINUTILSSRC) $(stamp)init-dirs
 	tar xaf $< -C src
 	touch $@
 
+# Patch to fix svc instruction
+$(stamp)binutils-patch: $(stamp)binutils-extract
+	cd src/binutils-* && \
+	patch -p1 -i ../../patches/patch-binutils-2.21.1-svc-cortexm3.diff
+	touch $@
+
 # Configure
-$(stamp)binutils-configure: $(stamp)binutils-extract
+$(stamp)binutils-configure: $(stamp)binutils-extract $(stamp)binutils-patch
 	install -d build/binutils
 	cd build/binutils && ../../src/binutils*/configure \
 	--prefix=$(PREFIX) \

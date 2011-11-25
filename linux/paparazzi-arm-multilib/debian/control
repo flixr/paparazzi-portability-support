@@ -8,11 +8,13 @@ Homepage: http://paparazzi.enac.fr
 
 Package: paparazzi-arm-multilib
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, paparazzi-stmlibs
+Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: Paparazzi support for lpc21 and stm32 processors
  This is a cross compilation toolchain for Paparazzi
  It contains:
     gcc       (linaro-4.6-2011.09-1)
-    binutils  (2.21.53)
+    binutils  (2.21.1 with svc patch)
     newlib    (1.19.0)
     gdb       (linaro-7.3-2011.10)
+    libstm32
+    libopenstm32
