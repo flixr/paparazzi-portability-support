@@ -2,16 +2,16 @@
 # $Id$
 PortSystem              1.0
 set targetarch          arm-none-eabi
-name                    libopenstm32
-version                 master-2011.07.23.01
+name                    libopencm3
+version                 master-2011.12.23.01
 categories              cross devel
 platforms               darwin
 maintainers             nomaintainer
-description             libopenstm32
-long_description        libopenstm32
+description             libopencm3
+long_description        libopencm3
 fetch.type              git
-git.url                 git://libopenstm32.git.sourceforge.net/gitroot/libopenstm32/libopenstm32
-
+git.url                 git://libopencm3.git.sourceforge.net/gitroot/libopencm3/libopencm3
+git.branch              d630d8397236b50ef68653b71348f39c1c48ce0b
 #worksrcdir              ${name}
 use_configure           no
 use_parallel_build      no
