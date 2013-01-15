@@ -21,7 +21,8 @@ case `lsb_release -si` in
 		devscripts \
 		pbuilder \
 		fakeroot \
-		debootstrap
+		debootstrap \
+		dh-ocaml
     ;;
     Ubuntu)
 	aptitude -y install \
@@ -36,7 +37,8 @@ case `lsb_release -si` in
 		pbuilder \
 		fakeroot \
 		debootstrap \
-		debian-archive-keyring
+		debian-archive-keyring \
+		dh-ocaml
     ;;
     *)
 	echo "Which Linux you are using ?"

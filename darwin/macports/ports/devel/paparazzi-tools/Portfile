@@ -3,7 +3,7 @@
 PortSystem          1.0
 
 name                paparazzi-tools
-version             master-2011.12.23.01
+version             2012.10.03.02
 categories          devel
 maintainers         nomaintainer
 description         Paparazzi Developer Tools
@@ -15,11 +15,11 @@ platforms           darwin
 
 depends_lib-append  \
                     port:ocaml \
-                    port:caml-findlib \
-                    port:caml-pcre \
+                    port:ocaml-findlib \
+                    port:ocaml-pcre \
                     port:git-core \
                     port:xml-light \
-                    port:caml-ocamlnet \
+                    port:ocaml-ocamlnet \
                     port:libftdi \
                     port:lablgtk2 \
                     port:gtk-theme-switch \
@@ -38,8 +38,13 @@ depends_lib-append  \
                     port:libstm32 \
                     port:libopencm3 \
                     port:jsbsim \
-                    port:tkdiff
-#found in paparazzi extras port:py26-scipy
+                    port:tkdiff \
+                    port:ocaml-gsl \
+                    port:libsdl \
+                    port:py27-pyusb-devel \
+                    port:py27-scipy \
+                    port:python_Select \
+		    port:py27-yaml
 
 distfiles
 use_configure   no
@@ -54,3 +59,6 @@ destroot {
     puts $docfile "${long_description}\n"
     close $docfile
 }
+
+package.flat    no
+
