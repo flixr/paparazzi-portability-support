@@ -1,3 +1,10 @@
+paparazzi-arm-multilib (1.2.4-2~saucy) saucy; urgency=low
+
+  * add ca-certificates to build-depends
+    (needed for downloading gcc via curl/https)
+
+ -- Felix Ruess <felix.ruess@gmail.com>  Mon, 11 Nov 2013 18:00:03 +0100
+
 paparazzi-arm-multilib (1.2.4-1) unstable; urgency=low
 
   * add patch to fix subscripted value error in gengtype
